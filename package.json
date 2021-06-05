@@ -8,6 +8,10 @@
   "repository": "https://github.com/vinhvn/randimals",
   "author": "vinhvn",
   "license": "MIT",
+  "bugs": "https://github.com/vinhvn/randimals/issues",
+  "bin": {
+    "randimals": "./bin/index.js"
+  },
   "scripts": {
     "build": "gulp",
     "test": "jest",
