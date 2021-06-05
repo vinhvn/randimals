@@ -1,0 +1,24 @@
+{
+  "name": "randimals",
+  "version": "1.0.0",
+  "description": "Generate unique animal IDs for your projects",
+  "main": "./lib/index.ts",
+  "repository": "https://github.com/vinhvn/randimals",
+  "author": "vinhvn",
+  "license": "MIT",
+  "scripts": {
+    "build": "gulp",
+    "test": "jest --watch",
+    "coverage": "jest --coverage"
+  },
+  "devDependencies": {
+    "@types/gulp": "^4.0.8",
+    "@types/gulp-minify": "^3.1.0",
+    "@types/jest": "^26.0.23",
+    "@types/node": "^15.12.1",
+    "gulp": "^4.0.2",
+    "gulp-minify": "^3.1.0",
+    "gulp-typescript": "^6.0.0-alpha.1",
+    "jest": "^27.0.4"
+  }
+}
