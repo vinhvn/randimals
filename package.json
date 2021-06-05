@@ -1,6 +1,6 @@
 {
   "name": "randimals",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Generate unique animal IDs for your projects",
   "main": "./lib/index.ts",
   "homepage": "https://github.com/vinhvn/randimals",
