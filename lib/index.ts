@@ -4,9 +4,9 @@ import type { Params } from './types';
  * Generate a unique animal with a random adjective
  * @param options {Object} options
  *                An optional configuration object
- *                - adjectives: Number of adjectives (default 1)
- *                - animals: Number of animals (default 1)
- *                - separator: Adjective and noun separator (default none)
+ *                - adjectives: Number of adjectives (default: 1)
+ *                - animals: Number of animals (default: 1)
+ *                - separator: Adjective and noun separator (default: " ")
  */
 function randimals(options: Params): string {
   const adjectives = require('../data/adjectives.json');
