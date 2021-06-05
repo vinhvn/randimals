@@ -72,7 +72,7 @@ A simple package that I made to emulate the random string generation that Twitch
 
 ## Notes
 
-Big thank you to GfyCat for the adjective and animal lists.
+Big thank you to GfyCat for the adjective and animal lists. Logo image is taken from [OpenMoji 13.0](https://openmoji.org/)
 
 ## License
 
