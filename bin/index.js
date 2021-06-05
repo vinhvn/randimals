@@ -7,7 +7,7 @@ command
   .version(randimals.version)
   .option('-a, --adjectives <number>', 'set the number of adjectives to output', 1)
   .option('-n, --animals <number>', 'set the number of animals to output', 1)
-  .option('-s, --separator <string>', 'set the separator string between each adjective and noun (defaults to space)', ' ')
+  .option('-s, --separator <string>', 'set the separator string between each adjective and noun', ' ')
   .parse(process.argv);
 
 const options = command.opts();

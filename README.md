@@ -59,12 +59,11 @@ $ randimals -h
   Usage: randimals [options]
 
   Options:
-  
-    -h, --help                  display help for command
-    -V, --version               display the current version number
-    -a, --adjectives <number>   set the number of adjectives to output
-    -n, --animals <number>      set the number of animals to output
-    -s, --separator <string>    set the separator string between each adjective and noun (defaults to space)
+    -V, --version              output the version number
+    -a, --adjectives <number>  set the number of adjectives to output (default: 1)
+    -n, --animals <number>     set the number of animals to output (default: 1)
+    -s, --separator <string>   set the separator string between each adjective and noun (default: " ")
+    -h, --help                 display help for command
 ```
 
 ## About
