@@ -14,7 +14,7 @@ import { formatString, formatWord } from './formatter';
  *                - case: Naming convention to use for words (default "capitalized")
  *                - separator: Adjective and noun separator (default " ")
  */
-module.exports = function (params: Params): string {
+function randimals(params: Params): string {
   // defaults
   const options: Params = {
     adjectives: 1,
@@ -82,7 +82,7 @@ module.exports = function (params: Params): string {
 
   // format the entire string and return it
   return formatString(options.format, words.join(' '));
-};
+}
 
 // Credit to https://stackoverflow.com/questions/47573087/typescript-check-if-value-is-contained-in-type
 function isFormat(str: string): str is Format {
@@ -103,3 +103,5 @@ function isFormat(str: string): str is Format {
 function isCase(str: string): str is Case {
   return ['lower', 'upper', 'capital'].includes(str);
 }
+
+export = randimals;
