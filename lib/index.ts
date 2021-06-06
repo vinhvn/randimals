@@ -14,7 +14,7 @@ import { formatString, formatWord } from './formatter';
  *                - case: Naming convention to use for words (default "capitalized")
  *                - separator: Adjective and noun separator (default " ")
  */
-function randimals(params: Params): string {
+function randimals(params?: Params): string {
   // defaults
   const options: Params = {
     adjectives: 1,

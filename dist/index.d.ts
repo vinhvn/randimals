@@ -1,5 +1,29 @@
-#!/usr/bin/env node
+export declare type Format = 'camel' | 'capital' | 'constant' | 'dot' | 'header' | 'no' | 'param' | 'pascal' | 'path' | 'sentence' | 'snake';
+export declare type Case = 'lower' | 'upper' | 'capital';
+interface Options {
+    adjectives?: number;
+    animals?: number;
+    format?: Format;
+    case?: Case;
+    separator?: string;
+}
+export declare type Params = number | string | Options | undefined;
 export {};
+
+import type { Params } from './types';
+/**
+ * Generate an adorable and unique animal with a random adjective attached.
+ * NOTE: Using the "case" or "separator" options overrides the "format" option.
+ * @param params {Object} params
+ *                An optional configuration object.
+ *                - adjectives: Number of adjectives (default 1)
+ *                - animals: Number of animals (default 1)
+ *                - format: Naming convention to use for string (default "capital")
+ *                - case: Naming convention to use for words (default "capitalized")
+ *                - separator: Adjective and noun separator (default " ")
+ */
+declare function randimals(params?: Params): string;
+export = randimals;
 
 import type { Format, Case } from './types';
 /**
@@ -17,25 +41,6 @@ declare const formatString: (format: Format, str: string) => string;
  */
 declare const formatWord: (format: Case, word: string) => string;
 export { formatString, formatWord };
-
-import type { Params } from './types';
-/**
- * Generate an adorable and unique animal with a random adjective attached.
- * NOTE: Using the "case" or "separator" options overrides the "format" option.
- * @param params {Object} params
- *                An optional configuration object.
- *                - adjectives: Number of adjectives (default 1)
- *                - animals: Number of animals (default 1)
- *                - format: Naming convention to use for string (default "capital")
- *                - case: Naming convention to use for words (default "capitalized")
- *                - separator: Adjective and noun separator (default " ")
- */
-declare function randimals(params: Params): string;
-export = randimals;
-
-declare const adjectives: any;
-declare const animals: any;
-export { adjectives, animals };
 
 /**
  * Selects a random adjective

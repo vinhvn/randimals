@@ -39,7 +39,12 @@ gulp.task('build:cli', () => {
 // build types
 gulp.task('build:types', () => {
   return gulp
-    .src('./lib/**/*.ts')
+    .src([
+      './lib/types.ts',
+      './lib/index.ts',
+      './lib/formatter.ts',
+      './lib/random.ts',
+    ])
     .pipe(tsc({ declaration: true }))
     .dts.pipe(concat('index.d.ts'))
     .pipe(gulp.dest('./dist'));
