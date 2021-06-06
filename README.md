@@ -14,19 +14,31 @@ $ npm install randimals
 $ yarn add randimals
 ```
 
-### API Examples
+### Examples
 
 ```js
 const randimals = require('randimals');
 
+// Default arguments generate an animal with one adjective
 console.log(randimals());
-// "Astronomical Wallaby"
+// => "Astronomical Wallaby"
 
+// Using a number as an argument specifies the amount of adjectives
 console.log(randimals(3));
-// "Wearable Ceramic Responsible Grizzlybear"
+// => "Wearable Ceramic Responsible Grizzlybear"
 
-console.log(randimals({ animals: 2, separator: '.' }));
-// "Uninspired.Cow.Grub"
+// Using a string as an argument specifies the naming convention
+console.log(randimals('snake'));
+// => "depressed_alligator"
+
+// Combine and mess around with different options!
+console.log(randimals({
+  adjectives: 2,
+  animals: 2,
+  case: 'upper',
+  separator: '.'
+}));
+// "DESIROUS.UNINSPIRED.COW.GRUB"
 ```
 
 ## Command Line Tool
@@ -46,8 +58,16 @@ $ yarn global add randimals
 $ randimals
 Bouncy Goose
 
-# using different options
-$ randimals -a 2 -s "_"
+# change amount of adjectives and animals
+$ randimals -a 3 -n 2
+Beamy Illtimed Comparable Neonbluehermitcrab Hoiho
+
+# set the naming convention
+$ randimals -f path
+prolific/galapagosalbatross
+
+# mix and match options
+$ randimals -a 2 -c capital -s "_"
 Gimmicky_Slippery_Raven
 ```
 
@@ -60,15 +80,17 @@ $ randimals -h
 
   Options:
     -V, --version              output the version number
-    -a, --adjectives <number>  set the number of adjectives to output (default: 1)
-    -n, --animals <number>     set the number of animals to output (default: 1)
-    -s, --separator <string>   set the separator string between each adjective and noun (default: " ")
+    -a, --adjectives <number>  set the number of adjectives to output (default: "1")
+    -n, --animals <number>     set the number of animals to output (default: "1")
+    -f, --format <string>      set the naming convention for each word (ex: 'pascal', 'snake', 'capital', etc.) (default: "capital")
+    -c, --case <string>        set the case for each word (ex: 'lower', 'upper', 'capital')
+    -s, --separator <string>   set the separator string between each adjective and noun
     -h, --help                 display help for command
 ```
 
 ## About
 
-A simple package that I made to emulate the random string generation that Twitch and GfyCat use for their sites. I wanted to use the strings as unique IDs in another project of mine so I decided to try writing a package myself.
+A simple package that I made to emulate the random string generation that Twitch and GfyCat use for their sites. I wanted to use the strings as unique IDs in another project of mine so I decided to try writing a package myself. In the process, I learned a lot more about the TypeScript, Gulp, Browserify, and module ecosystem 😓
 
 ## Notes
 
