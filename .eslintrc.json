@@ -1,0 +1,53 @@
+{
+  "extends": ["airbnb", "plugin:prettier/recommended", "plugin:import/typescript"],
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "jest": true,
+    "node": true
+  },
+  "parser": "babel-eslint",
+  "rules": {
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+   ],
+    "jsx-a11y/href-no-hash": ["off"],
+    "react/jsx-filename-extension": [
+      "warn",
+      { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
+    ],
+    "max-len": [
+      "warn",
+      {
+        "code": 80,
+        "tabWidth": 4,
+        "comments": 80,
+        "ignoreComments": false,
+        "ignoreTrailingComments": true,
+        "ignoreUrls": true,
+        "ignoreStrings": true,
+        "ignoreTemplateLiterals": true,
+        "ignoreRegExpLiterals": true
+      }
+    ],
+    "no-plusplus": "off",
+    "no-console": "off",
+    "no-alert": "off",
+    "no-underscore-dangle": "off",
+    "func-names": "off",
+    "no-unused-vars": "off",
+    "prefer-const": "off",
+    "no-restricted-syntax": "off",
+    "eqeqeq": "off",
+    "no-undef": "off",
+    "no-use-before-define": "off"
+  }
+}

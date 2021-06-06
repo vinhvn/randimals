@@ -1,46 +1,105 @@
-import type { Params } from './types';
+import type { Params, Format, Case } from './types';
+
+import { randomAdjective, randomAnimal } from './random';
+import { formatString, formatWord } from './formatter';
 
 /**
- * Generate a unique animal with a random adjective
- * @param options {Object} options
- *                An optional configuration object
+ * Generate an adorable and unique animal with a random adjective attached.
+ * NOTE: Using the "case" or "separator" options overrides the "format" option.
+ * @param params {Object} params
+ *                An optional configuration object.
  *                - adjectives: Number of adjectives (default 1)
  *                - animals: Number of animals (default 1)
- *                - separator: Adjective and noun separator (default none)
+ *                - format: Naming convention to use for string (default "capital")
+ *                - case: Naming convention to use for words (default "capitalized")
+ *                - separator: Adjective and noun separator (default " ")
  */
-function randimals(options: Params): string {
-  const adjectives = require('../data/adjectives.json');
-  const animals = require('../data/animals.json');
+module.exports = function (params: Params): string {
+  // defaults
+  const options: Params = {
+    adjectives: 1,
+    animals: 1,
+    format: 'capital',
+  };
 
-  // convert number to object
-  if (typeof options === 'number') {
-    options = { adjectives: options };
+  // check for inputs from user
+  if (params) {
+    // param number, generate that many adjectives
+    if (typeof params === 'number') {
+      options.adjectives = params;
+      // param string, use it as a formatter option
+    } else if (typeof params === 'string') {
+      if (isFormat(params)) {
+        options.format = params;
+      } else {
+        throw new Error(
+          `Bad format given. Valid formats are 'camel', 'capital', 'constant', 'dot', 'header', 'no', 'param', 'pascal', 'path', 'sentence', and 'snake'.`
+        );
+      }
+
+      // param object, retrieve options from its properties
+    } else if (typeof params === 'object') {
+      options.adjectives = params.adjectives || options.adjectives;
+      options.animals = params.animals || options.animals;
+      options.format = params.format || options.format;
+      options.case = params.case || options.case;
+      options.separator = params.separator || options.separator;
+    } else {
+      throw new Error(
+        `Bad argument type. Valid arguments are of type 'number', 'string', or 'object'`
+      );
+    }
   }
 
-  options = options || {};
-  options.adjectives = options.adjectives || 1;
-  options.animals = options.animals || 1;
-  options.separator = options.separator || ' ';
-
-  const words = [];
-
+  const words: string[] = [];
   for (let i = 0; i < options.adjectives; i++) {
-    words.push(randimals.capitalize(randimals.random(adjectives)));
+    words.push(randomAdjective());
   }
-
   for (let i = 0; i < options.animals; i++) {
-    words.push(randimals.capitalize(randimals.random(animals)));
+    words.push(randomAnimal());
   }
 
-  return words.join(options.separator);
+  // if options "case" or "separator" are supplied, those take priority over "format"
+  if (options.case || options.separator) {
+    if (options.case) {
+      if (isCase(options.case)) {
+        options.separator = options.separator || ' ';
+        return words
+          .map((word: string) => formatWord(options.case, word))
+          .join(options.separator);
+      } else {
+        throw new Error(
+          `Bad case given. Valid cases are 'lower', 'upper', and 'capital'.`
+        );
+      }
+    } else {
+      options.case = 'capital'; // default
+      return words
+        .map((word: string) => formatWord(options.case, word))
+        .join(options.separator);
+    }
+  }
+
+  // format the entire string and return it
+  return formatString(options.format, words.join(' '));
+};
+
+// Credit to https://stackoverflow.com/questions/47573087/typescript-check-if-value-is-contained-in-type
+function isFormat(str: string): str is Format {
+  return [
+    'camel',
+    'capital',
+    'constant',
+    'dot',
+    'header',
+    'no',
+    'param',
+    'pascal',
+    'path',
+    'sentence',
+    'snake',
+  ].includes(str);
 }
-
-randimals.version = require('../package.json').version;
-randimals.random = function random(words: string[]): string {
-  return words[Math.floor(Math.random() * words.length)];
-};
-randimals.capitalize = function capitalize(word: string): string {
-  return `${word.slice(0, 1).toUpperCase()}${word.slice(1).toLowerCase()}`;
-};
-
-module.exports = randimals;
+function isCase(str: string): str is Case {
+  return ['lower', 'upper', 'capital'].includes(str);
+}
