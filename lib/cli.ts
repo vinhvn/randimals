@@ -33,12 +33,10 @@ program
 const options = program.opts();
 
 // run program
-console.log(
-  randimals({
-    adjectives: options.adjectives,
-    animals: options.animals,
-    format: options.format,
-    case: options.case,
-    separator: options.separator,
-  })
-);
+randimals({
+  adjectives: options.adjectives,
+  animals: options.animals,
+  format: options.format,
+  case: options.case,
+  separator: options.separator,
+}).then((res: string) => console.log(res));

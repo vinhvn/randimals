@@ -22,7 +22,7 @@ import type { Params } from './types';
  *                - case: Naming convention to use for words (default "capitalized")
  *                - separator: Adjective and noun separator (default " ")
  */
-declare function randimals(params?: Params): string;
+declare function randimals(params?: Params): Promise<string>;
 export = randimals;
 
 import type { Format, Case } from './types';
@@ -46,10 +46,10 @@ export { formatString, formatWord };
  * Selects a random adjective
  * @returns {String} Randomly chosen adjective
  */
-declare const randomAdjective: () => string;
+declare const randomAdjective: () => Promise<string>;
 /**
  * Selects a random animal
  * @returns {String} Randomly chosen animal
  */
-declare const randomAnimal: () => string;
+declare const randomAnimal: () => Promise<string>;
 export { randomAdjective, randomAnimal };

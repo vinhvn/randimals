@@ -16,10 +16,10 @@ program
 // get input options
 var options = program.opts();
 // run program
-console.log(randimals({
+randimals({
     adjectives: options.adjectives,
     animals: options.animals,
     format: options.format,
     "case": options["case"],
     separator: options.separator
-}));
+}).then(function (res) { return console.log(res); });

@@ -14,7 +14,7 @@ import { formatString, formatWord } from './formatter';
  *                - case: Naming convention to use for words (default "capitalized")
  *                - separator: Adjective and noun separator (default " ")
  */
-function randimals(params?: Params): string {
+async function randimals(params?: Params): Promise<string> {
   // defaults
   const options: Params = {
     adjectives: 1,
@@ -51,12 +51,12 @@ function randimals(params?: Params): string {
     }
   }
 
-  const words: string[] = [];
+  const promises: Promise<string>[] = [];
   for (let i = 0; i < options.adjectives; i++) {
-    words.push(randomAdjective());
+    promises.push(randomAdjective());
   }
   for (let i = 0; i < options.animals; i++) {
-    words.push(randomAnimal());
+    promises.push(randomAnimal());
   }
 
   // if options "case" or "separator" are supplied, those take priority over "format"
@@ -64,9 +64,6 @@ function randimals(params?: Params): string {
     if (options.case) {
       if (isCase(options.case)) {
         options.separator = options.separator || ' ';
-        return words
-          .map((word: string) => formatWord(options.case, word))
-          .join(options.separator);
       } else {
         throw new Error(
           `Bad case given. Valid cases are 'lower', 'upper', and 'capital'.`
@@ -74,14 +71,18 @@ function randimals(params?: Params): string {
       }
     } else {
       options.case = 'capital'; // default
-      return words
-        .map((word: string) => formatWord(options.case, word))
-        .join(options.separator);
     }
+    return Promise.all(promises).then((words) =>
+      words
+        .map((word: string) => formatWord(options.case, word))
+        .join(options.separator)
+    );
   }
 
   // format the entire string and return it
-  return formatString(options.format, words.join(' '));
+  return Promise.all(promises).then((words) => {
+    return formatString(options.format, words.join(' '));
+  });
 }
 
 // Credit to https://stackoverflow.com/questions/47573087/typescript-check-if-value-is-contained-in-type
