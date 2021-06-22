@@ -4,6 +4,8 @@
 
 > Generate adorable and unique animal IDs for your projects.
 
+You can find the package on NPM at [npmjs.com/package/randimals](https://www.npmjs.com/package/randimals)
+
 ## Usage
 
 Start by installing the package locally into your project:
