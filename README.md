@@ -6,6 +6,10 @@
 
 You can find the package on NPM at [npmjs.com/package/randimals](https://www.npmjs.com/package/randimals)
 
+## Demo
+
+You can find a live demo at [vinhvn.github.io/randimals](https://vinhvn.github.io/randimals).
+
 ## Usage
 
 Start by installing the package locally into your project:
