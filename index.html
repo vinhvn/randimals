@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ff0000" />
+    <meta name="description" content="Your private asset repository" />
+    <link
+      rel="icon"
+      href="https://s.vincentnguyen.ca/SparklingGalactoidQuahog.ico"
+    />
+    <title>Randimals - Demo</title>
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  <body>
+    <h1>🐻 Randimals Demo</h1>
+    <hr />
+    <h2>About</h2>
+    <p>
+      This website is a live demo of the
+      <a href="https://github.com/vinhvn/randimals">Randimals</a> package,
+      available on <a href="https://npmjs.com/package/randimals">NPM</a>.
+    </p>
+    <p>
+      To use this demo, set the options below and then hit the submit button to
+      generate a unique and adorable animal-based ID.
+    </p>
+    <h2>Options</h2>
+
+    <p>
+      <label for="adjectives">Number of adjectives: </label>
+      <input
+        type="number"
+        name="adjectives"
+        id="optionAdjectives"
+        placeholder="1"
+      />
+      <span>Example: 2 = Colorful Mousey Elephant</span>
+    </p>
+
+    <p>
+      <label for="animals">Number of animals: </label>
+      <input type="number" name="animals" id="optionAnimals" placeholder="1" />
+      <span>Example: 2 = Aggressive Tiger Whale</span>
+    </p>
+
+    <p>
+      <label for="format">Format: </label>
+      <select name="format" id="optionFormat">
+        <option value="camel">camelCase</option>
+        <option value="capital" selected>Capital Case</option>
+        <option value="constant">CONSTANT_CASE</option>
+        <option value="dot">dot.case</option>
+        <option value="header">Header-Case</option>
+        <option value="no">no case</option>
+        <option value="param">param-case</option>
+        <option value="pascal">PascalCase</option>
+        <option value="path">path/case</option>
+        <option value="sentence">Sentence case</option>
+        <option value="snake">snake_case</option>
+      </select>
+      <span>Example: snake = ghastly_otter</span>
+      <span>Example: pascal = AggressiveTigerWhale</span>
+    </p>
+
+    <p>
+      <label for="case">Case: </label>
+      <select name="case" id="optionCase">
+        <option value="" selected>-- none --</option>
+        <option value="capital">Capitalized</option>
+        <option value="lower">lowercase</option>
+        <option value="upper">UPPERCASE</option>
+      </select>
+      <span id="spacer"></span>
+      <label for="separator">Separator: </label>
+      <input
+        type="text"
+        name="separator"
+        id="optionSeparator"
+        placeholder="between each word, e.g. ,"
+      />
+      <span>Example: UPPERCASE and , = SPECTACULAR,RHINOCEROS</span>
+      <span>Example: Capitalized and + = Pompous+Monkfish</span>
+    </p>
+
+    <p>
+      <b>NOTE:</b> Using the <i>case</i> or <i>separator</i> option(s) will
+      override the <i>format</i> option, using the given case and separator
+      instead.
+    </p>
+
+    <h2>Output</h2>
+
+    <button onclick="generate()">GENERATE RANDIMAL</button>
+
+    <div id="container">
+      <div id="output">Your Randimal goes here 🐼</div>
+    </div>
+
+    <footer>
+      <div id="spacer">Made with ❤️ by Vincent Nguyen.</div>
+      <div>
+        Hosted on <a href="https://github.com/vinhvn/randimals">GitHub</a>.
+      </div>
+    </footer>
+
+    <script src="/assets/bundle.js"></script>
+  </body>
+</html>

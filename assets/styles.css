@@ -1,0 +1,80 @@
+body {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 36rem;
+  font-family: sans-serif;
+  margin-top: 2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+input,
+select {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  border-radius: 0.25rem;
+  border-width: 1px;
+  border-color: rgb(107, 114, 128);
+  background-color: #fff;
+}
+
+#spacer {
+  margin-bottom: 0.25rem;
+}
+
+span {
+  display: block;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  padding-top: 0.25rem;
+  color: #888;
+}
+
+button {
+  border: solid;
+  border-radius: 0.25rem;
+  border-width: 1px;
+  border-color: rgb(107, 114, 128);
+  background-color: #eee;
+  font-weight: 700;
+  width: 100%;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ddd;
+}
+
+button:active {
+  background-color: #ccc;
+}
+
+#container {
+  border: solid;
+  border-radius: 0.25rem;
+  border-width: 1px;
+  border-color: rgb(107, 114, 128);
+  width: 100%;
+  min-height: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#output {
+  padding: 1.5rem;
+  text-align: center;
+  word-break: break-all;
+}
+
+footer {
+  width: 100%;
+  text-align: center;
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+}

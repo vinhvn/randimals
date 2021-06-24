@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "build": "npm run build:js",
+    "build:js": "browserify ./assets/main.js > ./assets/bundle.js"
+  },
+  "dependencies": {
+    "browserify": "^17.0.0",
+    "randimals": "^2.0.3"
+  }
+}
