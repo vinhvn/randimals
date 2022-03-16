@@ -39,7 +39,10 @@ function randimals(params?: Params): string {
 
       // param object, retrieve options from its properties
     } else if (typeof params === 'object') {
-      options.adjectives = params.adjectives || options.adjectives;
+      options.adjectives =
+        typeof params.adjectives !== 'undefined'
+          ? params.adjectives
+          : options.adjectives;
       options.animals = params.animals || options.animals;
       options.format = params.format || options.format;
       options.case = params.case || options.case;

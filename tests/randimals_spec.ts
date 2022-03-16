@@ -24,6 +24,14 @@ describe('randimals', function () {
       s.split(' ').length.should.eql(4);
     });
 
+    it('should return a string with 0 adjectives', () => {
+      const s = randimals({
+        adjectives: 0,
+      });
+      s.should.be.instanceOf(String);
+      s.split(' ').length.should.eql(1);
+    });
+
     it('should return a string with 2 animals', () => {
       const s = randimals({
         animals: 2,
@@ -73,6 +81,12 @@ describe('randimals', function () {
       const s = cli('--adjectives 3');
       s.should.be.instanceOf(String);
       s.split(' ').length.should.eql(4);
+    });
+
+    it('should return a string with 0 adjectives', () => {
+      const s = cli('--adjectives 0');
+      s.should.be.instanceOf(String);
+      s.split(' ').length.should.eql(1);
     });
 
     it('should return a string with 2 animals', () => {
